@@ -27,7 +27,11 @@ const userLoginAuth = require ('./controllers/userLoginAuth')
 const userLogout = require ('./controllers/userLogout')
 
 const app = express();
-mongoose.connect('mongodb://localhost:27017/blog', {
+
+const urlDb = 'mongodb+srv://lb:170578@cluster0-jjxz6.mongodb.net/test?retryWrites=true&w=majority'
+// const urlDb = 
+
+mongoose.connect( urlDb , {
     useCreateIndex: true,
     useNewUrlParser: true,
     useUnifiedTopology: true
