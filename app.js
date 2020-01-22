@@ -8,6 +8,8 @@ const expressSession = require('express-session');
 const MongoStore = require('connect-mongo') //stocker les cookies dans mongodb
 const connectFlash = require('connect-flash') //customize le message d'erreur
 const {stripTags} = require('./helpers/hbs')
+const port = process.env.PORT || 3000
+
 
 /*
  * Controllers
@@ -117,7 +119,6 @@ app.use( (req,res) => {
     res.render('error404')
 })
 
-app.listen(3000, function () {
-    console.log("le serveur tourne sur le port 3000");
-
+app.listen(port, function () {
+    console.log("le serveur tourne sur le port " + port);
 })
