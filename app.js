@@ -30,14 +30,13 @@ const userLogout = require ('./controllers/userLogout')
 
 const app = express();
 
-const urlDb = 'mongodb+srv://lb:170578@cluster0-jjxz6.mongodb.net/test?retryWrites=true&w=majority'
-// const urlDb = 
+//MongoDB
+const db = require('./config/keys.js').MongoURI
+mongoose
+    .connect(db, { useCreateIndex: true },{ useNewUrlParser: true },{ useUnifiedTopology: true })
+    .then(() => console.log('Connecter à MongoDB Cloud'))
+    .catch(err => console.log(err))
 
-mongoose.connect( urlDb , {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
 const mongoStore = MongoStore(expressSession)
 
 app.use(connectFlash())
